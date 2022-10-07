@@ -17,21 +17,21 @@ import lombok.*;
 @RestController
 @RequestMapping(path = "api/v1/Users")
 public class UserController {
-	
+
 	@Autowired
 	UserService userService;
 
 	@GetMapping("/{userId}")
-	public ResponseEntity<User> getUserById(@PathVariable long userId){
-		return userService.getUserById(userId);	
-		}
-	
+	public ResponseEntity<User> getUserById(@PathVariable long userId) {
+		return userService.getUserById(userId);
+	}
+
 	@PostMapping()
-	public ResponseEntity<User> addUser(@RequestBody User newUser){
+	public ResponseEntity<User> addUser(@RequestBody User newUser) {
 		return userService.createUser(newUser);
 	}
-	
+
 //	@GetMapping("/")
 //	public ResponseEntity<T>
-	
+
 }
