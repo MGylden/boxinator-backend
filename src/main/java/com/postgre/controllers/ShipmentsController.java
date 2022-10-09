@@ -12,12 +12,15 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.postgre.models.Shipments;
+import com.postgre.models.User;
 import com.postgre.services.ShipmentService;
 
 @RestController
+@RequestMapping(path = "api/v1/Shipments")
 public class ShipmentsController {
 
 	@Autowired
@@ -26,6 +29,11 @@ public class ShipmentsController {
 	@GetMapping
 	public ResponseEntity<Shipments> getContacts() {
 		return shipmentService.getAllShipments();
+	}
+	
+	@GetMapping("/{ShipmentId}")
+	public ResponseEntity<Shipments> getShipmentById(@PathVariable long shipmentId) {
+		return shipmentService.getShipmentById(shipmentId);
 	}
 
 	@PostMapping

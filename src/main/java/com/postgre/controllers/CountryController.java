@@ -9,12 +9,15 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.postgre.models.Country;
+import com.postgre.models.Shipments;
 import com.postgre.services.CountryService;
 
 @RestController
+@RequestMapping(path = "api/v1/Countries")
 public class CountryController {
 
 	@Autowired
@@ -23,6 +26,11 @@ public class CountryController {
 	@GetMapping
 	public ResponseEntity<Country> getCountry() {
 		return countryService.getAllCountries();
+	}
+	
+	@GetMapping("/{CountryId}")
+	public ResponseEntity<Country> getShipmentById(@PathVariable long CountryId) {
+		return countryService.getCountryById(CountryId);
 	}
 
 	@PostMapping
