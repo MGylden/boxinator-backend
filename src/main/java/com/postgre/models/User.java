@@ -12,70 +12,52 @@ import javax.persistence.Id;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 
+import lombok.Data;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
+@Data
+@NoArgsConstructor
 @Table(name="users")
 public class User {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Getter
-	@Setter
 	private Long userId;
 
 	@Column(nullable = false)
-	@Getter
-	@Setter
 	private String firstName;
 
 	@Column(nullable = false)
-	@Getter
-	@Setter
 	private String lastName;
 
 	@Column(nullable = false, unique = true)
 	@Email(message = "Email is not valid", regexp = "(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])")
 	@NotEmpty(message = "Email cannot be empty")
-	@Getter
-	@Setter
 	private String email;
 
 	@Column(nullable = false)
-	@Getter
-	@Setter
 	private String password;
 
 	@Column
-	@Getter
-	@Setter
 	private String dateOfBirth;
 
 	@Column
-	@Getter
-	@Setter
 	private String userCountry;
 
 	@Column
-	@Getter
-	@Setter
 	private int userZipCode;
 
 	@Column
-	@Getter
-	@Setter
 	private int phoneNumber;
 	
 	@Enumerated(EnumType.STRING)
 	@Column(nullable = false)
-	@Getter
-	@Setter
 	private AccountRole accountRole;
 	
 	@Basic
-	@Getter
-	@Setter
 	@Temporal(TemporalType.DATE)
 	private Date created_at;
 	
@@ -91,26 +73,6 @@ public class User {
         this.shipments = shipments;
     }
 	
-
-	public User(Long userId, String firstName, String lastName,
-			@Email(message = "Email is not valid", regexp = "(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])") @NotEmpty(message = "Email cannot be empty") String email,
-			String password, String dateOfBirth, String userCountry, int userZipCode, int phoneNumber,
-			AccountRole accountRole, Date created_at, Set<Shipments> shipments) {
-		super();
-		this.userId = userId;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.email = email;
-		this.password = password;
-		this.dateOfBirth = dateOfBirth;
-		this.userCountry = userCountry;
-		this.userZipCode = userZipCode;
-		this.phoneNumber = phoneNumber;
-		this.accountRole = accountRole;
-		this.created_at = created_at;
-		this.shipments = shipments;
-	}
-
 	public User() {
 
 	}

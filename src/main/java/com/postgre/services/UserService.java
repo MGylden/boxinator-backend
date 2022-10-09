@@ -71,12 +71,12 @@ public class UserService {
 		return new ResponseEntity<>(returnUser, httpStatus);
 	}
 	
-	public ResponseEntity<User> updateUser(User newUser){
+	public ResponseEntity<User> updateUser(User newUser, Long id){
 		HttpStatus httpStatus = null;
 		User returnUser = null;
 		
 		try {
-			if((returnUser = userRepo.getReferenceById(null))!= null) {
+			if((returnUser = userRepo.getReferenceById(id))!= null) {
 				newUser = (User)HelperService.partialUpdate(httpStatus, returnUser);
 				returnUser = userRepo.saveAndFlush(newUser);
 				httpStatus = HttpStatus.OK;
@@ -88,6 +88,5 @@ public class UserService {
 			System.out.println("House is on fire.");
 			System.out.println(e.getMessage());		}
 		return new ResponseEntity<>(returnUser, httpStatus);
-
 	}
 }

@@ -6,29 +6,25 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.Data;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
+@Data
+@NoArgsConstructor
 @Table(name="countries")
 public class Country {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Getter
-	@Setter
 	private Long countryId;
 	
-	@Getter
-	@Setter
 	private String countryName;
-	
-	@Getter
-	@Setter
+
 	private Long fee;
 	
-	@Getter
-	@Setter
 	private int countryCode;
 
 }
