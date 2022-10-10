@@ -23,12 +23,12 @@ public class CountryController {
 	private CountryService countryService;
 
 	@GetMapping
-	public ResponseEntity<Country> getCountry() {
+	public ResponseEntity<Country> getAllCountries() {
 		return countryService.getAllCountries();
 	}
 	
 	@GetMapping("/{CountryId}")
-	public ResponseEntity<Country> getShipmentById(@PathVariable long CountryId) {
+	public ResponseEntity<Country> getCountryById(@PathVariable long CountryId) {
 		return countryService.getCountryById(CountryId);
 	}
 

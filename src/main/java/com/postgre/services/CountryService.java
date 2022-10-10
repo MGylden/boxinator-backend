@@ -1,6 +1,7 @@
 package com.postgre.services;
 
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,11 +20,11 @@ public class CountryService {
 	CountryRepository countryRepo;
 
 	public ResponseEntity<Country> getAllCountries() {
-		List<Country> countryList = null;
+		Set<Country> countryList = null;
 		HttpStatus httpStatus = null;
 
 		try {
-			countryList = countryRepo.findAll();
+			countryList = (Set<Country>) countryRepo.findAll();
 			
 			if (countryList.isEmpty()) {
 				httpStatus = HttpStatus.NOT_FOUND;

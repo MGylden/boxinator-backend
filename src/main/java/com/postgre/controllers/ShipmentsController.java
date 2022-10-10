@@ -26,7 +26,7 @@ public class ShipmentsController {
 	private ShipmentService shipmentService;
 
 	@GetMapping
-	public ResponseEntity<Shipments> getContacts() {
+	public ResponseEntity<Shipments> getShipments() {
 		return shipmentService.getAllShipments();
 	}
 	
@@ -45,8 +45,8 @@ public class ShipmentsController {
 		return shipmentService.deleteShipment(id);
 	}
 	@PutMapping("/{id}")
-	public ResponseEntity<Shipments>updateShipment(@PathVariable(value="id")Long id, @Validated @RequestBody Shipments newContact){
-		return shipmentService.updateShipment(newContact, id);
+	public ResponseEntity<Shipments>updateShipment(@PathVariable(value="id")Long id, @Validated @RequestBody Shipments newShipment){
+		return shipmentService.updateShipment(newShipment, id);
 	}
 }
 

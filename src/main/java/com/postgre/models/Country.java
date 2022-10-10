@@ -1,5 +1,8 @@
 package com.postgre.models;
 
+import java.util.Set;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -21,10 +24,15 @@ public class Country {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long countryId;
 	
+	@Column(nullable = false)
 	private String countryName;
-
+	
+	@Column(nullable = false)
 	private Long fee;
 	
+	@Column(nullable = false)	
 	private int countryCode;
+	
+	private Set<Country> countrySet;
 
 }
