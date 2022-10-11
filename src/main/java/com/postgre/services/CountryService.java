@@ -62,11 +62,8 @@ public class CountryService {
 		Country returnCountry = null;
 
 		try {
-<<<<<<< Updated upstream:src/main/java/com/postgre/services/CountryService.java
-			if (countryRepo.existByMail() == false) {
-=======
 			if (countryRepo.existsById(countryId) == true) {
->>>>>>> Stashed changes:src/main/java/com/postgre/demo/services/CountryService.java
+
 				returnCountry = countryRepo.saveAndFlush(newCountry);
 				httpStatus = HttpStatus.OK;
 			} else {
