@@ -3,6 +3,7 @@ package com.postgre.demo.models;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.*;
@@ -19,7 +20,7 @@ import lombok.Setter;
 @Entity
 @Data
 @NoArgsConstructor
-@Table(name = "shipments")
+@Table(name="shipments")
 public class Shipments {
 
 	@Id
@@ -52,16 +53,11 @@ public class Shipments {
 	public Shipments() {
 	}
 
-	@ManyToOne()
-	private Set<User> user = new HashSet<>();
-
-	@JsonIgnore
-	public Set<User> getUser() {
-		return user;
-	}
-
-	@JsonIgnore
-	public void setUser(Set<User> user) {
-		this.user = user;
-	}
+	/*
+	 * @JoinColumn(name = "user_id", referencedColumnName = "id") private User user;
+	 * 
+	 * @JsonIgnore public User getUser(User user) { return user; }
+	 * 
+	 * @JsonIgnore public void setUser(User user) { this.user = user; }
+	 */
 }

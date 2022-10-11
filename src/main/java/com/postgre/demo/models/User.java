@@ -3,7 +3,9 @@ package com.postgre.demo.models;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
@@ -22,6 +24,7 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 
+import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.postgre.demo.models.enums.AccountRole;
 
@@ -36,7 +39,7 @@ public class User {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long userId;
+	private Long id;
 
 	@Column(nullable = false)
 	private String firstName;
@@ -63,30 +66,34 @@ public class User {
 
 	@Column
 	private int phoneNumber;
-	
+
 	@Enumerated(EnumType.STRING)
 	@Column(nullable = false)
 	private AccountRole accountRole;
-	
+
 	@Basic
 	@Temporal(TemporalType.DATE)
 	private Date created_at;
-	
-	@OneToMany(mappedBy="users", fetch= FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<Shipments> shipments = new HashSet<>();
 
-	@JsonIgnore
-    public Set<Shipments> getShipments() {
-        return shipments;
-    }
-    
-	@JsonIgnore
-    public void setShipments(Set<Shipments> shipments) {
-        this.shipments = shipments;
-    }
-	
+	/*
+	 * @OneToMany(targetEntity = Shipments.class, fetch = FetchType.LAZY, cascade =
+	 * CascadeType.ALL, orphanRemoval = true) private Set<Shipments> shipments;
+	 * 
+	 * @JsonIgnore public Set<Shipments> getShipments() { return shipments; }
+	 * 
+	 * @JsonIgnore public void setShipments(Set<Shipments> shipments) {
+	 * this.shipments = shipments; }
+	 */
+
 	public User() {
-
+		 
 	}
+
+	/*
+	 * @JsonGetter("Shipments") public List<String> userProjectsGetter() { if
+	 * (shipments != null) { return shipments.stream() .map(shipments ->
+	 * "api/v1/Shipments" + shipments. .getShipments().getboxId())
+	 * .collect(Collectors.toList()); } else { return null; } }
+	 */
 
 }
