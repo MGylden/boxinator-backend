@@ -7,6 +7,4 @@ import com.postgre.demo.models.Shipments;
 
 @Repository
 public interface ShipmentRepository extends JpaRepository<Shipments, Long> {
-
-	public boolean existByMail();
 }

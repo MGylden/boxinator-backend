@@ -53,6 +53,72 @@ public class Shipments {
 	public Shipments() {
 	}
 
+	public Long getBoxId() {
+		return boxId;
+	}
+
+	public void setBoxId(Long boxId) {
+		this.boxId = boxId;
+	}
+
+	public String getReceiverName() {
+		return receiverName;
+	}
+
+	public void setReceiverName(String receiverName) {
+		this.receiverName = receiverName;
+	}
+
+	public int getWeightKg() {
+		return weightKg;
+	}
+
+	public void setWeightKg(int weightKg) {
+		this.weightKg = weightKg;
+	}
+
+	public String getBoxColor() {
+		return boxColor;
+	}
+
+	public void setBoxColor(String boxColor) {
+		this.boxColor = boxColor;
+	}
+
+	public String getDestinationCountry() {
+		return destinationCountry;
+	}
+
+	public void setDestinationCountry(String destinationCountry) {
+		this.destinationCountry = destinationCountry;
+	}
+
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
+	public Date getCreated_at() {
+		return created_at;
+	}
+
+	public void setCreated_at(Date created_at) {
+		this.created_at = created_at;
+	}
+
+	public PackageStatus getPackageStatus() {
+		return packageStatus;
+	}
+
+	public void setPackageStatus(PackageStatus packageStatus) {
+		this.packageStatus = packageStatus;
+	}
+
+	
+	
 	/*
 	 * @JoinColumn(name = "user_id", referencedColumnName = "id") private User user;
 	 * 

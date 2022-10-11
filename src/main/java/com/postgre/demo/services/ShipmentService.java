@@ -60,9 +60,10 @@ public class ShipmentService {
 	public ResponseEntity<Shipments> createShipment(Shipments newShipment) {
 		HttpStatus httpStatus = null;
 		Shipments returnShipment = null;
+		Long id = newShipment.getBoxId();
 
 		try {
-			if (shipmentRepo.existByMail() == false) {
+			if (shipmentRepo.existsById(id) == false) {
 				returnShipment = shipmentRepo.saveAndFlush(newShipment);
 				httpStatus = HttpStatus.OK;
 			} else {

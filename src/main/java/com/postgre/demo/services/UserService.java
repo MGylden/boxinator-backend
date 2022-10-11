@@ -42,7 +42,7 @@ public class UserService {
 		User returnUser = null;
 
 		try {
-			if (userRepo.existByMail() == false) {
+			if (userRepo.existByMail(newUser.getUserEmail()) == false) {
 				returnUser = userRepo.saveAndFlush(newUser);
 				httpStatus = HttpStatus.OK;
 			} else {

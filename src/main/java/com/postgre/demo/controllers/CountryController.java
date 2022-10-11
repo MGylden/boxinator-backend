@@ -17,8 +17,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.postgre.demo.models.Country;
 import com.postgre.demo.services.CountryService;
 
+import static com.postgre.demo.controllers.ControllerHelper.BASE_URI_V1;
+
 @RestController
-@RequestMapping(path = "api/v1/Countries")
+@RequestMapping(path = BASE_URI_V1 + "Countries")
 public class CountryController {
 
 	@Autowired

@@ -19,8 +19,11 @@ import com.postgre.demo.models.User;
 import com.postgre.demo.repositories.UserRepository;
 import com.postgre.demo.services.UserService;
 
+import static com.postgre.demo.controllers.ControllerHelper.BASE_URI_V1;
+
+
 @RestController
-@RequestMapping(path = "/Users/")
+@RequestMapping(path = BASE_URI_V1 + "Users/")
 public class UserController {
 
 	@Autowired
@@ -29,10 +32,10 @@ public class UserController {
 	@Autowired
 	UserRepository userRepo;
 	
-	@GetMapping("AllUsers2")
-	public List<User> getAllUsers2(){
-		return this.userRepo.findAll();
-	}
+	/*
+	 * @GetMapping("AllUsers2") public List<User> getAllUsers2(){ return
+	 * (List<User>) this.userRepo.findAll(); }
+	 */
 
 	@GetMapping("/{userId}")
 	public ResponseEntity<User> getUserById(@PathVariable long userId) {

@@ -60,9 +60,10 @@ public class CountryService {
 	public ResponseEntity<Country> createCountry(Country newCountry) {
 		HttpStatus httpStatus = null;
 		Country returnCountry = null;
+		Long countryId = newCountry.getCountryId();
 
 		try {
-			if (countryRepo.existByMail() == false) {
+			if (countryRepo.existsById(countryId) == false) {
 				returnCountry = countryRepo.saveAndFlush(newCountry);
 				httpStatus = HttpStatus.OK;
 			} else {

@@ -18,8 +18,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.postgre.demo.models.Shipments;
 import com.postgre.demo.services.ShipmentService;
 
+import static com.postgre.demo.controllers.ControllerHelper.BASE_URI_V1;
+
+
 @RestController
-@RequestMapping(path = "api/v1/Shipments")
+@RequestMapping(path = BASE_URI_V1 + "Shipments")
 public class ShipmentsController {
 
 	@Autowired

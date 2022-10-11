@@ -8,5 +8,4 @@ import com.postgre.demo.models.Country;
 @Repository
 public interface CountryRepository extends JpaRepository<Country, Long> {
 
-	public boolean existByMail();
 }
