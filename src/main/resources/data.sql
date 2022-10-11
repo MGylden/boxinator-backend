@@ -1,0 +1,1 @@
+INSERT INTO users VALUES(2, 'admin', '211212', '121233', 'email@email', 'per', 'pedersem', 'password', 3021312, 'Denmark', 2211)

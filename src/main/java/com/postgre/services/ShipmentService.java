@@ -62,7 +62,11 @@ public class ShipmentService {
 		Shipments returnShipment = null;
 
 		try {
+<<<<<<< Updated upstream:src/main/java/com/postgre/services/ShipmentService.java
 			if (shipmentRepo.existByMail() == false) {
+=======
+			if (shipmentRepo.existsById(id) == true) {
+>>>>>>> Stashed changes:src/main/java/com/postgre/demo/services/ShipmentService.java
 				returnShipment = shipmentRepo.saveAndFlush(newShipment);
 				httpStatus = HttpStatus.OK;
 			} else {

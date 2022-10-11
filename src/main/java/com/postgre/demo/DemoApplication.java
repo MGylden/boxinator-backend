@@ -3,6 +3,10 @@ package com.postgre.demo;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+<<<<<<< Updated upstream
+=======
+@ComponentScan(basePackages = {"com.postgre.demo.services.*"})
+>>>>>>> Stashed changes
 @SpringBootApplication
 public class DemoApplication {
 

@@ -16,7 +16,11 @@ import com.postgre.models.User;
 import com.postgre.services.UserService;
 
 @RestController
+<<<<<<< Updated upstream:src/main/java/com/postgre/controllers/UserController.java
 @RequestMapping(path = "api/v1/Users")
+=======
+@RequestMapping(path = BASE_URI_V1 + "Users")
+>>>>>>> Stashed changes:src/main/java/com/postgre/demo/controllers/UserController.java
 public class UserController {
 
 	@Autowired
