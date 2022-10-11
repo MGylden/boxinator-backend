@@ -1,11 +1,14 @@
 package com.postgre.services;
 
+import java.util.Set;
+
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import com.postgre.models.Shipments;
 import com.postgre.models.User;
 import com.postgre.repositories.UserRepository;
 
@@ -67,6 +70,25 @@ public class UserService {
 			httpStatus = HttpStatus.INTERNAL_SERVER_ERROR;
 			System.out.println("House is on fire.");
 			System.out.println(e.getMessage());
+		}
+		return new ResponseEntity<>(returnUser, httpStatus);
+	}
+	
+	public ResponseEntity <Set<User>> getAllUsers(){
+		Set<User> returnUser = null;
+		HttpStatus httpStatus = null;
+		
+		try {
+			returnUser = (Set<User>) userRepo.findAll();
+			if (returnUser.isEmpty()) {
+				httpStatus = HttpStatus.NOT_FOUND;
+			}else {
+				httpStatus = HttpStatus.OK;
+			}
+		} catch (Exception e) {
+			System.out.println("The house is on fire...");
+			System.out.println(e.getMessage());
+			httpStatus = HttpStatus.INTERNAL_SERVER_ERROR;
 		}
 		return new ResponseEntity<>(returnUser, httpStatus);
 	}

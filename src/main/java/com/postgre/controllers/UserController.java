@@ -1,5 +1,7 @@
 package com.postgre.controllers;
 
+import java.util.Set;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.postgre.models.Shipments;
 import com.postgre.models.User;
 import com.postgre.services.UserService;
 
@@ -25,6 +28,11 @@ public class UserController {
 	@GetMapping("/{userId}")
 	public ResponseEntity<User> getUserById(@PathVariable long userId) {
 		return userService.getUserById(userId);
+	}
+	
+	@GetMapping()
+	public ResponseEntity<Set<User>> getAllUsers() {
+		return userService.getAllUsers();
 	}
 
 	@PostMapping()
