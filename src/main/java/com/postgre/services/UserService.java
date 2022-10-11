@@ -45,11 +45,8 @@ public class UserService {
 		Long id = newUser.getId();
 
 		try {
-<<<<<<< Updated upstream:src/main/java/com/postgre/services/UserService.java
-			if (userRepo.existByMail() == false) {
-=======
+
 			if (userRepo.existsById(id) == true) {
->>>>>>> Stashed changes:src/main/java/com/postgre/demo/services/UserService.java
 				returnUser = userRepo.saveAndFlush(newUser);
 				httpStatus = HttpStatus.OK;
 			} else {
