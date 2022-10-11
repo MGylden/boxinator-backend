@@ -16,7 +16,6 @@ import com.postgre.models.User;
 import com.postgre.services.UserService;
 
 @RestController
-
 @RequestMapping(path = BASE_URI_V1 + "Users")
 public class UserController {
 
